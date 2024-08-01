@@ -1,0 +1,151 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  background-color: rgba(128, 128, 128, 0.2);
+  display: grid;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.nav a {
+  color: #000;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: black;
+  color: white;
+  padding: 12px;
+  height: 95vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  filter: drop-shadow(30px 10px 4px #4444dd);
+}
+
+.filter label {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.filter select,
+.filter input[type="date"],
+.filter input[type="checkbox"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  color: black;
+}
+
+.filters input[type="checkbox"] {
+  width: auto;
+  margin: 0 10px;
+}
+.filters label {
+  width: auto;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-right: 2rem;
+  position: relative;
+  margin-top:2rem;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.8);
+  backdropfilter: blur(20px);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  width: 100%;
+  position: fixed;
+  top:1.5rem;
+  z-index: 2;
+  max-width: 1000px;
+}
+
+.chart-container {
+  display: grid;
+  max-width: 900px;
+  grid-template-columns: repeat(2, 450px);
+  grid-auto-rows: 300px;
+  flex-wrap: wrap;
+  grid-column-gap: 4rem;
+  grid-row-gap:  12rem;
+  padding: 1rem 2.5rem 1rem 0;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+}
+
+.chart {
+  background: white;
+  border-radius: 5%;
+  padding: 0 1rem;
+  position: relative;
+  width: 480px;
+  height: 380px;
+  box-shadow: 12px 12px 5px rgba(0, 0, 0, 1);
+}
+
+.black {
+  grid-column: 1 / span 2;
+}
+.insights {
+  margin-top: 10px;
+}
+.insights input {
+  background: black;
+}
+.insights h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.insights p {
+  height: 14rem;
+  padding: 4px;
+  border: 2px solid white;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  overflow-y: scroll;
+}

@@ -1,0 +1,4 @@
+.echarts-toolbox .save-as-image {
+    background-color: black !important;
+    color: white !important; /* Text color for contrast */
+  }

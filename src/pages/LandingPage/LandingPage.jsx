@@ -15,8 +15,8 @@ const LandingPage = () => {
       <div className="col-span-12 justify-self-center">
         <Info/>
       </div>
-      <div className="col-span-12 place-content-center">
-        <LandingFooter/>
+      <div className="bg-black col-span-12 place-content-center">
+        <LandingFooter/> 
       </div>
     </div>
   );

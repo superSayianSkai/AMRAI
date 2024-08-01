@@ -11,7 +11,7 @@ const Body = () => {
         genomic data. Our user-friendly platform helps you gain insights
         effortlessly.
       </p>
-      <Link to=".signUp">
+      <Link to="/signUp">
         <button className="border-[1px] border-black px-8 py-2 rounded-full bg-white text-black hover:bg-black hover:text-white hover:text-black hover:border-white h">
           Get started
         </button>

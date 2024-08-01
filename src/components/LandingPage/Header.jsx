@@ -4,7 +4,7 @@ const Header = () => {
     <div className="flex justify-between border-2 px-10 py-5 items-center rounded-xl bg-white">
       <div className="flex gap-2 justify-between items-center">
         <FaDna className="text-xl" />
-        <h2 className="text-xl font-bold">AMRAI</h2>
+        <h2 className="text-xl font-bold">AMR</h2>
       </div>
       <div>
         <ul className="flex gap-6">
