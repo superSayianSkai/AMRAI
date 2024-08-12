@@ -9,7 +9,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { setUser, setToken, token } = AuthState();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/amrai";
 
   useEffect(() => {
     if (token) {

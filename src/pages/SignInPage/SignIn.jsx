@@ -9,8 +9,8 @@ const SignUp = () => {
   const { setUser, setToken, token } = AuthState();
   const navigate = useNavigate();
   const location = useLocation;
-  const from = location.state?.from?.pathname || "/";
-  
+  const from = location.state?.from?.pathname || "/amrai";
+
   useEffect(() => {
     if (token) {
       navigate(from, { replace: true });
