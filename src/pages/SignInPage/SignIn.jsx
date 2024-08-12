@@ -40,7 +40,7 @@ const SignUp = () => {
   };
   return (
     <div className="h-[100vh] flex items-center justify-center relative flex-col bg-white">
-      <h1 className="text-[50px] font-bold mt-2">AMR</h1>
+      <h1 className="text-[50px] font-bold mt-2">AMRAI</h1>
       <div className=" text-black min-w-[400px] flex flex-col items-center gap-4 py-8 px-9 mt-12">
         <h2 className="text-2xl font-bold capitalize">SIGN IN</h2>
         <form className="flex flex-col gap-2 w-[100%]">
