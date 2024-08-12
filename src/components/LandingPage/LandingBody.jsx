@@ -7,11 +7,11 @@ const Body = () => {
           Introducing
         </span>
         <span className="text-[3rem] leading-[3rem] mb-6  md:text-[150px] font-bold">
-          AMR
+          AMRAI
         </span>
       </h1>
       <p className="mb-4 md:text-xl max-w-[40rem] text-gray-700 lg:my-[1rem] leading-[2rem] lg:leading-[2.6rem] whitespace-break-spaces">
-        AMR is a powerful tool for inputting, analyzing, and visualizing genomic
+        AMRAI  is a powerful tool for inputting, analyzing, and visualizing genomic
         data. Our user-friendly platform helps you gain insights effortlessly.
       </p>
       <Link to="/signIn">

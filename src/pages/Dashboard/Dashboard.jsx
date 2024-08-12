@@ -8,7 +8,8 @@ import Skai from "../../assets/images/skai.jpg";
 import { FaDownload } from "react-icons/fa6";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [retract, setRetract] = useState(false);
 
@@ -34,7 +35,11 @@ const Dashboard = () => {
   }, []);
 
   if (!isLargeScreen) {
-    return <div className="flex justify-center items-center h-[100vh]">Please view this dashboard on a larger screen.</div>;
+    return (
+      <div className="flex justify-center items-center h-[100vh]">
+        Please view this dashboard on a larger screen.
+      </div>
+    );
   }
 
   return (
@@ -45,7 +50,6 @@ const Dashboard = () => {
         transitionDuration: ".3s",
         transitionDelay: ".1s",
         transitionTimingFunction: "ease",
-      
       }}
       className="dashboard content"
     >
@@ -114,9 +118,11 @@ const Dashboard = () => {
           }}
           className="header rounded-xl  max-w-[100%] transition-width duration-300 delay-100 ease"
         >
-          <div className="logo cursor-pointer">AMR</div>
+          <div className="logo cursor-pointer">AMRAI</div>
           <nav className="flex items-center justify-center cursor-pointer">
-            <div className="text-[18px] font-medium">ChatAI</div>
+            <Link to="/amrai" >
+              <div className="text-[18px] font-medium">ChatAI</div>
+            </Link>
             <FaDownload className="text-xl mx-8" />
             <div className="w-[30px]">
               <img src={Skai} className="rounded-full w-full h-full" alt="" />
@@ -124,12 +130,7 @@ const Dashboard = () => {
           </nav>
         </header>
 
-        <div
-          style={{
-
-          }}
-          className="chart-container "
-        >
+        <div style={{}} className="chart-container ">
           <BarChartMe />
 
           <PieChartMe />

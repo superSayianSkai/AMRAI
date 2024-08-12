@@ -3,7 +3,7 @@ const Header = ({ setOpen }) => {
   return (
     <div className="flex justify-between px-[1.5rem] my-2 items-center rounded-2xl text-black font-sm cursor-pointer ">
       <div className="flex gap-2 justify-between items-center">
-        <h2 className="text-2xl font-bold leading-[2.6rem]">AMR</h2>
+        <h2 className="text-2xl font-bold leading-[2.6rem]">AMRAI</h2>
       </div>
       <div className="font-sm">
         <ul className="hidden lg:flex gap-6 items-center justify-center">
