@@ -14,6 +14,7 @@ import { LuSparkles } from "react-icons/lu";
 import { FaArrowUp } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ChatAMRAI = () => {
   const [extended, setExtended] = useState(false);
@@ -24,6 +25,13 @@ const ChatAMRAI = () => {
   const [history, setHistory] = useState(null);
   const { token } = AuthState();
   const { user } = AuthState();
+  const navigate=useNavigate()
+  useEffect(() => {
+    if (!token) {
+      navigate("/signIn");
+    }
+  }, [token]);
+
 
   const handleMextend = () => {
     setMextended((prev) => !prev);
