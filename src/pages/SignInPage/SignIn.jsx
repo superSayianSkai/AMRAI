@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AuthState } from "../../context/Context";
 import axios from "axios";
@@ -8,12 +8,14 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const { setUser, setToken, token } = AuthState();
   const navigate = useNavigate();
-
+  const location = useLocation;
+  const from = location.state?.from?.pathname || "/";
+  
   useEffect(() => {
     if (token) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const signinHandler = async () => {
     // e.preventDefault()
@@ -37,7 +39,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="p-10 min-h-[100vh] flex items-center relative flex-col bg-white">
+    <div className="h-[100vh] flex items-center justify-center relative flex-col bg-white">
       <h1 className="text-[50px] font-bold mt-2">AMR</h1>
       <div className=" text-black min-w-[400px] flex flex-col items-center gap-4 py-8 px-9 mt-12">
         <h2 className="text-2xl font-bold capitalize">SIGN IN</h2>

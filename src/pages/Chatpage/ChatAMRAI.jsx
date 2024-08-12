@@ -25,13 +25,12 @@ const ChatAMRAI = () => {
   const [history, setHistory] = useState(null);
   const { token } = AuthState();
   const { user } = AuthState();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     if (!token) {
       navigate("/signIn");
     }
-  }, [token]);
-
+  }, [token,navigate]);
 
   const handleMextend = () => {
     setMextended((prev) => !prev);
@@ -151,7 +150,7 @@ const ChatAMRAI = () => {
             {HumanResponse.length == 0 ? (
               <div>
                 <span className="text-[60px] font-bold greeting">
-                  Hello {user.fullName},
+                  Hello {user?.fullName},
                 </span>
                 <p className="text-4xl text-gray-400">
                   how can I help you today?
