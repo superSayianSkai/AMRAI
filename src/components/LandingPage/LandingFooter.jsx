@@ -1,7 +1,7 @@
 import LandingIcon from "./LandingIcon";
 const LandingFooter = () => {
   return (
-    <div className="flex justify-around items-center text-white bg-black">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-around items-center text-black p-12">
       <div>
         <h2 className="text-md font-semibold">Genomac Holdings @2024 </h2>
       </div>

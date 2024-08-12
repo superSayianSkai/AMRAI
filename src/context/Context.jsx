@@ -1,65 +1,25 @@
-import { createContext, useState } from "react";
-import run from "../config/Gemini";
-import { split } from "postcss/lib/list";
+import { createContext, useContext, useState } from "react";
+export const AuthContext = createContext();
 
-export const Context = createContext();
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(
+    localStorage.getItem("userData")
+      ? JSON.parse(localStorage.getItem("userData"))
+      : null
+  );
+  const [token, setToken] = useState(
+    localStorage.getItem("tokenData") ? localStorage.getItem("tokenData") : null
+  );
 
-const ContextProvider = (props) => {
-  const [input, setInput] = useState("");
-  const [recentPrompts, setRecentPrompt] = useState("");
-  const [prevPrompts, setPrevPrompts] = useState([]);
-  const [showResult, setShowResult] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [resultData, setResultData] = useState("");
-
-  const delayPara = (index, nextWord) => {
-    setTimeout(function () {
-      setResultData((prev) => prev + nextWord);
-    }, 75 * index);
-  };
-
-  const onSent = async (prompt) => {
-    setResultData("");
-    setLoading(true);
-    setShowResult(true);
-    setRecentPrompt(input);
-    setPrevPrompts(prev=>[...prev,input])
-    const response = await run(input);
-    let responseArray = response.split("**");
-    let newResponse=""
-    for (let i = 0; i < responseArray.length; i++) {
-      if (i == 0 || i % 2 !== 1) {
-        newResponse += responseArray[i];
-      } else {
-        newResponse += "<b>" + responseArray[i] + "</b>";
-      }
-    }
-    let newResponse2 = newResponse.split("*").join("</br>");
-    let newResponseArray = newResponse2.split(" ");
-    for (let i = 0; i < newResponseArray.length; i++) {
-      const nextWord = newResponseArray[i];
-      delayPara(i,nextWord + " ");
-    }
-    setLoading(false);
-    setInput("");
-  };
-  const contextValue = {
-    prevPrompts,
-    setPrevPrompts,
-    onSent,
-    setRecentPrompt,
-    recentPrompts,
-    showResult,
-    setShowResult,
-    loading,
-    setLoading,
-    resultData,
-    setResultData,
-    input,
-    setInput,
-  };
   return (
-    <Context.Provider value={contextValue}>{props.children}</Context.Provider>
+    <AuthContext.Provider value={{ user, setUser, token, setToken }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
-export default ContextProvider;
+
+export default AuthProvider;
+
+export const AuthState = () => {
+  return useContext(AuthContext);
+};

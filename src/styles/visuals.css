@@ -10,8 +10,7 @@ body {
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
-  padding-top: 1rem;
-  padding-left: 1rem;
+
   
 }
 
@@ -29,7 +28,6 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns: 250px 1fr;
   gap: 2rem;
 }
 
@@ -40,7 +38,7 @@ body {
   background: black;
   color: white;
   padding: 12px;
-  height: 95vh;
+  height: 100vh;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -85,45 +83,40 @@ body {
   min-height: 100vh;
   padding-right: 2rem;
   position: relative;
-  margin-top:2rem;
+  padding-top: 3rem;
 }
 
 .header {
   background: rgba(255, 255, 255, 0.8);
-  backdropfilter: blur(20px);
+  backdropfilter: blur(20px); 
   color: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
-  width: 100%;
   position: fixed;
-  top:1.5rem;
+  top:17px;
   z-index: 2;
-  max-width: 1000px;
+  margin:0 auto; 
+  width: 100%;
+  max-width: 100vw;
 }
 
 .chart-container {
   display: grid;
-  max-width: 900px;
-  grid-template-columns: repeat(2, 450px);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 300px;
   flex-wrap: wrap;
-  grid-column-gap: 4rem;
-  grid-row-gap:  12rem;
-  padding: 1rem 2.5rem 1rem 0;
+  grid-column-gap: 2rem;
   margin-top: 5rem;
   margin-bottom: 10rem;
 }
 
 .chart {
-  background: white;
   border-radius: 5%;
   padding: 0 1rem;
   position: relative;
-  width: 480px;
-  height: 380px;
-  box-shadow: 12px 12px 5px rgba(0, 0, 0, 1);
+  
 }
 
 .black {
@@ -148,4 +141,64 @@ body {
   line-height: 1.5;
   scrollbar-width: thin;
   overflow-y: scroll;
+}
+
+/* Small devices (sm) */
+/* The range is from 0px to 639px */
+@media (max-width: 639px) {
+  .dashboard{
+    grid-template-columns:1fr;
+  }
+  .chart-container {
+    display: grid;
+    
+    grid-auto-rows: 300px;
+    flex-wrap: wrap;
+    grid-column-gap: 2rem;
+    grid-row-gap:  12rem;
+    padding: 1rem 2.5rem 1rem 0;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+  .chart {
+    background: white;
+    border-radius: 5%;
+    padding: 0 1rem;
+    position: relative;
+    width: 100%;
+    height: 380px;
+    box-shadow: 12px 12px 5px rgba(0, 0, 0, 1);
+  }
+  
+  .sidebar{
+    display:none;
+  }
+  .header{
+    width:100%
+  }
+  /* Styles for small devices go here */
+}
+
+/* Medium devices (md) */
+/* The range is from 640px to 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Styles for medium devices go here */
+}
+
+/* Large devices (lg) */
+/* The range is from 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for large devices go here */
+}
+
+/* Extra large devices (xl) */
+/* The range is from 1024px to 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Styles for extra large devices go here */
+}
+
+/* 2X large devices (2xl) */
+/* The range is from 1280px and above */
+@media (min-width: 1280px) {
+  
 }

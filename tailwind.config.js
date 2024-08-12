@@ -1,31 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+import { addUtilities } from './src/plugins/scroll';
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
-  },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        ".scrollbar-thin": {
-          scrollbarWidth: "thin",
-          scrollbarColor: "rgb(31 29 29) white",
-        },
-        ".scrollbar-webkit": {
-          "&::-webkit-scrollbar": {
-            width: "8px",
-          },
-          "&::-webkit-scrollbar-track": {
-            background: "white",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "rgb(31 41 55)",
-            borderRadius: "20px",
-            border: "1px solid white",
-          },
-        },
-      };
-      addUtilities(newUtilities, ["responsive", "hover"]);
+    extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"], // Added fallback to sans-serif
+      },
+      colors: {
+        "custom-gray": "rgb(248, 250, 252)", // Define the custom color
+      },
     },
-  ],
+  },
+  plugins: [addUtilities],
 };

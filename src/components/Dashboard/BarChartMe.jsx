@@ -89,10 +89,10 @@ const BarChartMe = () => {
 
   return (
     <ReactECharts
-      className="rounded-2xl shadow-lg absolute top-[-50px] shadow-gray-400"
+      className="rounded-2xl shadow-lg  shadow-gray-400"
       ref={chartRef}
       option={option}
-      style={{ height: "268px", width: "450px", background: "white" }}
+      style={{ height: "268px", width: "100%", background: "white" }}
     />
   );
 };

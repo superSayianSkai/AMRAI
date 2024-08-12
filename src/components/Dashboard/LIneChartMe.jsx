@@ -70,10 +70,10 @@ const LineChartMe = () => {
 
   return (
     <ReactECharts
-      className="rounded-2xl shadow-lg shadow-gray-400 absolute top-[-50px]"
+      className="rounded-2xl shadow-lg shadow-gray-400"
       ref={chartRef}
       option={option}
-      style={{ height: "268px", width: "450px", background: "white" }}
+      style={{ height: "268px", width: "100%", background: "white" }}
     />
   );
 };

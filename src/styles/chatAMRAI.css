@@ -5,11 +5,15 @@ body {
   background-color: #ffff;
 }
 
+.burger {
+  display: none;
+}
+
 .chat-amrai-container {
   display: grid;
   grid-template-columns: 6fr 1fr;
   flex-direction: column;
-  height: 100vh;
+  max-height: 100vh;
 }
 
 .header {
@@ -37,8 +41,6 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
-  height: 87vh;
 }
 
 .submit-btn {
@@ -66,8 +68,8 @@ body {
 }
 
 .response p {
-  white-space:pre-line;
-  align-self:start;
+  white-space: pre-line;
+  align-self: start;
 }
 
 .recent-prompts {
@@ -79,13 +81,13 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   min-height: 100vh;
-  
 }
 
 .prompt-form {
-  margin: 0 11rem;
   display: flex;
+  padding: 0;
   border: 1px solid black;
+  margin: 0 7rem;
 }
 aside {
   background: #f4f4f4;
@@ -207,3 +209,94 @@ span {
   font-family: "Poppins", sans-serif;
 }
 
+@media (max-width: 639px) {
+  .burger {
+    display: block;
+  }
+
+  .chat-amrai-container {
+    padding:1rem ;
+    grid-template-columns: 1fr !important;
+    max-height: 100vh;
+    overflow:hidden;
+
+  }
+  .recent-prompts {
+  }
+  .response {
+    margin: 0 0.1rem;
+  }
+  .prompt-form {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    margin-right: 2rem;
+  }
+  .prompt-form input {
+    width: 80%;
+    margin: 0;
+  }
+  .main-content {
+    padding: 0px;
+  }
+}
+
+/* Medium devices (md) */
+/* The range is from 640px to 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+
+  .chat-amrai-container {
+    grid-template-columns: 6fr 1fr;
+    max-height: 100%;
+  }
+  .chat-amrai-container {
+    grid-template-columns: 1fr;
+    max-height: 100%;
+  }
+
+  .recent-prompts {
+    width: 80%;
+  }
+
+  /* Styles for medium devices go here */
+}
+
+/* Large devices (lg) */
+/* The range is from 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .burger {
+    display: block;
+  }
+
+  aside {
+  }
+  .chat-amrai-container {
+    grid-template-columns: 1fr;
+    max-height: 100%;
+  }
+  .recent-prompts {
+    right: 0;
+  }
+
+  .prompt-form {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    margin-right: 2rem;
+  }
+  /* Styles for large devices go here */
+}
+
+/* Extra large devices (xl) */
+/* The range is from 1024px to 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Styles for extra large devices go here */
+}
+
+/* 2X large devices (2xl) */
+/* The range is from 1280px and above */
+@media (min-width: 1280px) {
+}

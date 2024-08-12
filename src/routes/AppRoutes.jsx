@@ -4,6 +4,7 @@ import SignUp from "../pages/SignUpPage/SignUp";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import ChatAMRAI from "../pages/Chatpage/ChatAMRAI";
 import InputData from "./../pages/InpudataPage/InputData"
+import AuthProvider from "../context/Context"
 import Dashboard from "../pages/Dashboard/Dashboard"
 const AppRoutes = () => {
   const router = createBrowserRouter(
@@ -36,9 +37,9 @@ const AppRoutes = () => {
     ],
   );
   return (
-    <div>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </div>
+    </AuthProvider>
   );
 };
 

@@ -1,45 +1,47 @@
-/*
- * Install the Generative AI SDK
- *
- * $ npm install @google/generative-ai
- *
- * See the getting started guide for more information
- * https://ai.google.dev/gemini-api/docs/get-started/node
- */
+async function run(question, chatId=1) {
+  try {
+    console.log("Sending request to production server with question:", question, "and chatId:", chatId);
 
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-} from "@google/generative-ai";
+    const response = await fetch("https://amr-ai-api.onrender.com/api/v1/message/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        question,
+        // chatId: chatId ?? null, // Ensure chatId is null if not provided
+      }),
+    });
 
-const apiKey = "AIzaSyCPUgK1C7Nd4snHLXKUPHi9r1Kma7bu9LU";
-const genAI = new GoogleGenerativeAI(apiKey);
+    console.log("Response status:", response.status);
 
-const model = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash",
-});
+    const contentType = response.headers.get("Content-Type");
+    console.log("Response content type:", contentType);
 
-const generationConfig = {
-  temperature: 1,
-  topP: 0.95,
-  topK: 64,
-  maxOutputTokens: 8192,
-  responseMimeType: "text/plain",
-};
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.log("Response not OK:", errorText);
+      throw new Error(`Failed to fetch response from the backend: ${errorText}`);
+    }
 
-async function run(prompt) {
-  const chatSession = model.startChat({
-    generationConfig,
-    // safetySettings: Adjust safety settings
-    // See https://ai.google.dev/gemini-api/docs/safety-settings
-    history: [],
-  });
+    if (contentType && contentType.includes("application/json")) {
+      const data = await response.json();
+      console.log("Parsed response JSON:", data);
 
-  const result = await chatSession.sendMessage(prompt);
-  const response = result.response;
-  console.log(response.text());
-  return response.text();
+      if (!data.answer) {
+        throw new Error("Invalid response format");
+      }
+
+      console.log("Received answer:", data.answer);
+      return data.answer;
+    } else {
+      const textResponse = await response.text();
+      throw new Error(`Expected JSON response, got: ${textResponse}`);
+    }
+  } catch (error) {
+    console.error("Error occurred:", error.message);
+    return "Sorry, something went wrong. Please try again.";
+  }
 }
 
 export default run;
