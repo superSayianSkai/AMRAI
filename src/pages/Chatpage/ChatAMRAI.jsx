@@ -15,6 +15,7 @@ import { FaArrowUp } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { IoPersonCircleSharp } from "react-icons/io5";
 
 const ChatAMRAI = () => {
   const [extended, setExtended] = useState(false);
@@ -160,15 +161,16 @@ const ChatAMRAI = () => {
               HumanResponse?.map((item) => (
                 <div
                   key={item._id}
-                  className="result flex flex-col gap-10 mb-4"
+                  className="result flex flex-col gap-10 mb-4 "
                 >
-                  <div className="flex items-center gap-6">
-                    <img
+                  <div className="flex items-center gap-6 ">
+                    <IoPersonCircleSharp className="text-[30px] rounded-full cursor-pointer"/>                    
+                    {/* <img
                       className="w-[30px] rounded-full cursor-pointer"
                       src={Skai}
                       alt=""
-                    />
-                    <p>{item.question}</p>
+                    />*/}
+                    <p className="text-center">{item.question}</p> 
                   </div>
 
                   <div className="result-data flex gap-6">
@@ -176,7 +178,7 @@ const ChatAMRAI = () => {
                       <LuSparkles className="text-3xl sparkle" />
                     </div>
                     <p
-                      className=""
+                      className="mb-[80px]"
                       dangerouslySetInnerHTML={{
                         __html: item.response,
                       }}
