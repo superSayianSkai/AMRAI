@@ -28,7 +28,7 @@ const InfoData = [
   {
     img: Dna,
     h2: "Data Input",
-    p: "Analyze your whole genome data through our intuitive interface to explore AMR profiles and gain insights quickly,
+    p: "Quickly input your genomic data through our intuitive interface and start analyzing right away.",
     picture: bulb,
     link: "",
     status: "Coming soon",
