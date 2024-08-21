@@ -10,12 +10,14 @@ const Body = () => {
           AMRAI
         </span>
       </h1>
-      <p className="mb-4 md:text-xl max-w-[40rem] text-gray-700 lg:my-[1rem] leading-[2rem] lg:leading-[2.6rem] whitespace-break-spaces">
-        AMRAI  is a powerful tool for inputting, analyzing, and visualizing genomic
-        data. Our user-friendly platform helps you gain insights effortlessly.
+      <p className="mb-4 md:text-xl max-w-[45rem] text-gray-700 lg:my-[1rem] leading-[2rem] lg:leading-[2.6rem] whitespace-break-spaces break-before-all">
+        Empowering Africa to Fight Antimicrobial Resistance with AI-Powered
+        Genomic Surveillance
       </p>
       <Link to="/signIn">
-        <button className="border-2 border-black rounded-full py-2 px-4 lg:hover:text-white lg:hover:bg-black max-md:active:text-white max-md:active:bg-black">Get Started</button>
+        <button className="border-2 border-black rounded-full py-2 px-4 lg:hover:text-white lg:hover:bg-black max-md:active:text-white max-md:active:bg-black">
+          Get Started
+        </button>
       </Link>
     </div>
   );
